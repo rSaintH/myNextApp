@@ -1,6 +1,6 @@
 import { inviteUser } from '../services/invitations' // <-- Importa aqui
 import { redirect } from "next/navigation";
-import { auth, clerkClient, Show } from "@clerk/nextjs/server";
+import { auth, clerkClient } from "@clerk/nextjs/server";
 
 
 async function handleInviteUser(formData: FormData){
