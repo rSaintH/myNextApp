@@ -21,6 +21,6 @@ export default async function Products() {
 
 
     return(
-        
+        <h1>vazio</h1>
     )
 }
