@@ -22,6 +22,9 @@ export default function Header(){
                 <li>
                   <Link href='/dashboard'>Dashboard</Link>
                 </li>
+                <li>
+                  <Link href='users'>Usuários</Link>
+                </li>
               </ul>
             </nav>
             
