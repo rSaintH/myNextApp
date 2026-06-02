@@ -1,4 +1,4 @@
-import { inviteUser } from '../services/invitations' // <-- Importa aqui
+// import { inviteUser } from '../services/invitations' // <-- Importa aqui
 import { redirect } from "next/navigation";
 import { auth, clerkClient } from "@clerk/nextjs/server";
 
@@ -6,11 +6,20 @@ import { auth, clerkClient } from "@clerk/nextjs/server";
 async function handleInviteUser(formData: FormData){
     'use server'
     const emailAddress = formData.get("emailAddress") as string;
-    const user = await inviteUser(emailAddress)
-    if (user) {
-        console.log(user)
+    
+
+    const url = process.env.URL;
+    const response = await fetch(`${url}/api/invitations`, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify( emailAddress )
+    })
+
+    if (!response.ok) {
+        throw new Error("Falha ao enviar convite");
     }
 
+    return response.json()
 }
 
 export default async function Users(){
