@@ -7,11 +7,12 @@ export async function POST(req: Request) {
 
   // Initialize clerkClient
   const client = await clerkClient()
-
+    const url = process.env.URL;
   // Use the `createInvitation()` method to create an invitation
   const invitation = await client.invitations.createInvitation({
     emailAddress,
-    redirectUrl: 'http://localhost:3000/sign-up',
+    
+    redirectUrl: `${url}/sign-up`,
   })
 
   return NextResponse.json({ message: 'Invitation created', invitation })

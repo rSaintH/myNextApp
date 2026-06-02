@@ -25,7 +25,7 @@ export default async function Home() {
 
   return (
    <div className="flex flex-col items-center justify-center mt-10">
-    <Link className={buttonStyle} href="/sign-up">Entrar</Link>
+    <Link className={buttonStyle} href="/sign-in">Entrar</Link>
     <Link className={buttonStyle} href="/sign-up">Criar sua conta</Link>
     
   </div>
